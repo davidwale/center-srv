@@ -59,8 +59,8 @@ This project is a NestJS application that implements essential authentication fe
 
 1\. **Clone the Repository**:\
    ```bash\
-   git clone <repository_url>\
-   cd <repository_folder>\
+   git clone [https://github.com/davidwale/center-srv](https://github.com/davidwale/center-srv)
+   cd dev-center
    ```
 
 2\. **Install Dependencies**:\
@@ -68,9 +68,9 @@ This project is a NestJS application that implements essential authentication fe
    npm install\
    ```
 
-3\. **Set Up Environment Variables**: Create a `.env` file in the root directory and populate it with the following:\
+3\. **Set Up Environment Variables**: Create a `.env` file in the root directory and populate it with the following:
    ```\
-   PORT=3000\
+   - PORT=3000\
    MONGO_URI=mongodb://localhost:27017/nest-auth-db\
    JWT_SECRET=your_jwt_secret\
    SMTP_HOST=smtp.your-email-provider.com\
