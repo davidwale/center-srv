@@ -46,8 +46,12 @@ export class AuthService {
         const { email, password } = dto;
 
         const user = await this.userModel.findOne({ email });
-        if (!user || !(await bcrypt.compare(password, user.password))) {
-            throw new BadRequestException('Invalid credentials');
+        if (!user) {
+            throw new BadRequestException('User not Found!');
+        }
+
+        if (!(await bcrypt.compare(password, user.password))) {
+            throw new BadRequestException('Invalid Password');
         }
 
         if (!user.isUserVerified) {
