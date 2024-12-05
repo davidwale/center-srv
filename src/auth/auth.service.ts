@@ -56,7 +56,7 @@ export class AuthService {
 
         if (!user.isUserVerified) {
             const otp = crypto.randomInt(100000, 999999);
-            await this.sendEmail(email, 'Verify Account', `Your verification code: ${otp}. Code will expire in an hour`);
+            await this.sendEmail(email, 'Verify Account', `Your verification code: ${otp}. Code will expire in an hour. use this link to verify your account: ${process.env.ALLOWED_DOMAIN}email-verification`);
             user.otp = otp;
             user.otpExpiry = new Date(Date.now() + 10 * 60 * 1000);
             await user.save();
@@ -144,6 +144,7 @@ export class AuthService {
 
         user.otp = null;
         user.otpExpiry = null;
+        user.isUserVerified = true;
         await user.save();
 
         return { token };
